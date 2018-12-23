@@ -14,9 +14,6 @@ def gluon2keras(model, input_shapes, verbose=False, names=False):
     :param names: keras names (keep, short, random-suffix)
     :return: keras model
     """
-    # Make sure it's hybrid and initialized
-    model.hybridize()
-    model.collect_params().initialize()
 
     # Convert gluon model to pytorch model
     pytorch_model = gluon2pytorch(model, input_shapes, dst_dir=None, pytorch_module_name='converted_model')
